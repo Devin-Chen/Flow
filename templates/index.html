@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Shoutout</title>
+    <title>flow</title>
 </head>
 <body>
     <form action="/post" method="post">
@@ -10,8 +10,8 @@
         message: <input type="text" name="message"/>
         <input type="submit" value="Submit"/>
     </form>
-    {% for shout in shouts %}
-    {{ shout.name }} - {{ shout.message }} <br>
+    {% for flow in flows %}
+    {{ flow.name }} - {{ flow.message }} <br>
     {% endfor %}
 </body>
 </html>

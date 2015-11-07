@@ -7,14 +7,14 @@ MONGO_URL = os.environ.get('MONGOLAB_URL')
 client = MongoClient(MONGO_URL)
 
 #specify database
-db = client.heroku_v124pmq2
-collection = db.flow
+db = client.heroku_vl24pmq2
+collection = db.flows
 
 app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def index():
-    flow = collection.find()
+    flows = collection.find()
     return render_template('index.html', flow=flow)
 
 @app.route("/post", methods=['POST'])
