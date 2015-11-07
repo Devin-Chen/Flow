@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route("/", methods=['GET'])
 def index():
     flows = collection.find()
-    return render_template('index.html', flow=flow)
+    return render_template('index.html', flows=flows)
 
 @app.route("/post", methods=['POST'])
 def post():
