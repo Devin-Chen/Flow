@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shoutout</title>
+</head>
+<body>
+    <form action="/post" method="post">
+        name: <input type="text" name="name"/>
+        message: <input type="text" name="message"/>
+        <input type="submit" value="Submit"/>
+    </form>
+    {% for shout in shouts %}
+    {{ shout.name }} - {{ shout.message }} <br>
+    {% endfor %}
+</body>
+</html>
