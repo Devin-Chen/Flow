@@ -14,7 +14,11 @@ export function playerPause(player) {
 }
 export function playerNext(player) {
   return (dispatch, getState)=>{
-    player
+    dispatch(next());
+    let s = getState();
+    player.src = s.playList[s.playIndex].url;
+    player.load();
+    player.play();
   };
 }
 
