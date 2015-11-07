@@ -18,7 +18,7 @@ def index():
     return render_template('index.html', flow=flow)
 
 @app.route("/post", methods=['POST'])
-def index():
+def post():
     flow = {"name":request.form['name'], "message":request.form['message']}
     flow_id = collection.insert(flow)
     return redirect('/')
