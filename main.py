@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect
 import pymongo
 from pymongo import MongoClient
 
-MONGO_URL = os.environ.get('MONGOHQ_URL')
+MONGO_URL = os.environ.get('MONGOLAB_URL')
 client = MongoClient(MONGO_URL)
 
 #specify database
