@@ -6,6 +6,7 @@ const PAUSE = 'PAUSE';
 const NEXT = 'NEXT';
 const LIKE = 'LIKE';
 const DISLIKE = 'DISLIKE';
+const NEUTRAL = 'NEUTRAL';
 
 function play() {
   return {
@@ -30,6 +31,11 @@ function like() {
 function dislike() {
   return {
     type: DISLIKE,
+  }
+}
+function neutral() {
+  return {
+    type: NEUTRAL,
   }
 }
 
@@ -62,6 +68,8 @@ function createPrograms(programs, index, opinion) {
       ...programs.slice(index+1)];
 }
 
+// The controls are overloaded on a real audio player, like play and pause. 
+// Maybe a reducer should not behave the same way...
 function reducer(
   state=initialState, action) {
 
@@ -80,21 +88,29 @@ function reducer(
       }
       return Object.assign({}, state, { current: newCurrent }); 
     case LIKE:
-      if(state.programs[state.current].opinion === OPINION.LIKE) {
-        opinion = OPINION.NEUTRAL;
-      } else {
+      if(state.programs[state.current].opinion !== OPINION.LIKE) {
         opinion = OPINION.LIKE;
-      }
-      return Object.assign({}, state, { 
-          programs: createPrograms(state.programs, state.current, opinion)}); 
-    case DISLIKE:
-      if(state.programs[state.current].opinion === OPINION.DISLIKE) {
-        opinion = OPINION.NEUTRAL;
+        return Object.assign({}, state, { 
+            programs: createPrograms(state.programs, state.current, opinion)}); 
       } else {
-        opinion = OPINION.DISLIKE;
+        return state;
       }
-      return Object.assign({}, state, { 
-          programs: createPrograms(state.programs, state.current, opinion)}); 
+    case DISLIKE:
+      if(state.programs[state.current].opinion !== OPINION.DISLIKE) {
+        opinion = OPINION.DISLIKE;
+        return Object.assign({}, state, { 
+            programs: createPrograms(state.programs, state.current, opinion)}); 
+      } else {
+        return state;
+      }
+    case NEUTRAL:
+      if(state.programs[state.current].opinion !== OPINION.NEUTRAL) {
+        opinion = OPINION.NEUTRAL;
+        return Object.assign({}, state, { 
+            programs: createPrograms(state.programs, state.current, opinion)}); 
+      } else {
+        return state;
+      }
     default:
       return state;
   }
