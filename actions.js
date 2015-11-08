@@ -67,7 +67,6 @@ export function nextUpdate() {
   return (dispatch, getState)=>{
     let s = getState();
     update(2, s.playList[s.playIndex].topic);
-    dispatch(next());
   };
 }
 export function neutral() {

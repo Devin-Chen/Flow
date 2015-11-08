@@ -62,7 +62,7 @@ export default function reducer(
       } else {
         newCurrent = 0;
       }
-      return Object.assign({}, state, { playIndex: newCurrent }); 
+      return Object.assign({}, state, { playing: true, playIndex: newCurrent }); 
     case ActionType.LIKE:
       if(state.playList[state.playIndex].opinion !== Opinion.LIKE) {
         opinion = Opinion.LIKE;

@@ -132,7 +132,9 @@ class App extends Component {
    	<div className="row">
 	  <div className="playerButton col-xs-3"><button id="unlike" className="glyphicon glyphicon-thumbs-down mainButton" onClick={ this.handleDislike.bind(this) } disabled={!ready}></button></div>
 	  <div className="playerButton col-xs-3"><button id="like" className="glyphicon glyphicon-thumbs-up mainButton" onClick={ this.handleLike.bind(this) } disabled={!ready}></button></div>
+
 	  <div className="playerButton col-xs-3"><button id="play" className="glyphicon  mainButton" onClick={ this.handlePlayPause.bind(this) } disabled={!ready}>{playing?'Pause':'Play'}</button></div>
+
 	  <div className="playerButton col-xs-3"><button id="next" className="glyphicon glyphicon-forward mainButton" onClick={ this.handleNext.bind(this) } disabled={!ready}></button></div>
    	 </div>
    </div>
