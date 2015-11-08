@@ -4,6 +4,14 @@ import { connect } from 'react-redux';
 import { Opinion } from './constants';
 import Myo from 'myo';
 
+class Chart extends Component {
+  render() {
+    return (
+      
+    );
+  }
+}
+
 class App extends Component {
   play() {
     let { dispatch } = this.props;
