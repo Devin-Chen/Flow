@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Flow Preference</title>
+  <script src='Chart.min.js'></script>
+</head>
+<body>
+  <canvas id="updating-chart" width="500" height="300"></canvas>
+  <script>
+      var canvas = document.getElementById('updating-chart'),
+      ctx = canvas.getContext('2d'),
+      startingData = {
+          labels : ["Asia","Environment","Health","Politics","Technology"],
+          datasets : [
+              {
+                  fillColor: "rgba(151,187,205,0.2)",
+                  strokeColor: "rgba(151,187,205,1)",
+                  pointColor: "rgba(151,187,205,1)",
+                  pointStrokeColor: "#fff",
+                  data: [20, 20, 20, 20, 20]
+              }
+          ]
+      };
+
+      // Reduce the animation steps for demo clarity.
+      var myLiveChart = new Chart(ctx).Bar(startingData, {animationSteps: 50});
+
+      setInterval(function(){
+          var topicIndex = Math.round(Math.random() * (startingData.labels.length - 1));
+          var weight = [0.2, -0.5, -0.1];
+          var actionIndex = Math.round(Math.random() * (weight.length - 1));
+          var dataLength = myLiveChart.datasets[0].bars.length;
+          
+          var valueChange = myLiveChart.datasets[0].bars[topicIndex].value * weight[actionIndex];
+          myLiveChart.datasets[0].bars[topicIndex].value += valueChange;
+          
+          for (i = 0; i < dataLength; i++) {
+              if (i != topicIndex) {
+                  myLiveChart.datasets[0].bars[i].value -= valueChange / (dataLength - 1);
+              }
+          }
+          
+          myLiveChart.update();
+      }, 100);
+  </script>
+</body>
+</html>
