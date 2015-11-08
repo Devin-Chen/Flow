@@ -1,0 +1,78 @@
+body {
+    background-image: url("http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/background-wallpapers-32.jpg");
+    background-repeat: no-repeat;
+	background-size: auto;
+    background-position: center top;
+	font-family: Avenir Next;
+	text-align: center;	
+}
+
+.container {
+	padding-top: 40px;
+}
+
+.logo {
+	width: 70%;	
+}
+
+.gestures {
+	width: 70%;	
+}
+
+.mainButton {
+	font-weight: 100;
+	padding: 5px;
+	font-size: 3em;
+	border: none;
+	background-color: white;
+	outline: none;
+	position: relative;
+	bottom: 10px;
+}
+
+.mainButton:hover {
+	text-shadow: 0 0 30px black;
+	transition:all .1s ease-in-out;
+	font-size: 3.2em;
+	margin-top: -5px;
+}
+
+#like:hover {
+	color: #00E276;
+}
+
+#unlike:hover {
+	color: #FE0000;
+}
+
+#like:hover {
+	color: #00E276;
+}
+
+.mainButton:active {
+	margin-top: 2px;
+	font-size: 2.8em;
+}
+
+.playerCard {
+	box-shadow: 0 0 100px black;
+	margin-top: 20px;
+	background-color: white;
+	border-radius: 10px;
+	padding: 20px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.teamInfo {
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	max-width: 420px;
+	margin-top: 20px;
+	border-radius: 100px;
+	color: white;
+	border: 1px 0px 0px black;
+	background-color: rgba(0,0,0,0.3);
+	padding: 4px 10px 4px 10px;
+}
