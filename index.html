@@ -14,7 +14,6 @@
  
  <body>
     <div id="root"></div>
-    <script src="bundle.js"></script>
     
     <div class="row">
     <div class="col-md-3"></div>
@@ -22,44 +21,7 @@
       <canvas id="updating-chart" width="500px" height="300"></canvas></div>
     </div>
 
-    <script>
-        var canvas = document.getElementById('updating-chart'),
-        ctx = canvas.getContext('2d'),
-        startingData = {
-            labels : ["Asia","Environment","Health","Politics","Technology"],
-            datasets : [
-                {
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    data: [20, 20, 20, 20, 20]
-                }
-            ]
-        };
 
-        // Reduce the animation steps for demo clarity.
-        var myLiveChart = new Chart(ctx).Bar(startingData, {animationSteps: 50});
-
-        var like = function(index) {
-            var topicIndex = Math.round(Math.random() * (startingData.labels.length - 1));
-            var weight = [0.2, -0.5, -0.1];
-            var actionIndex = index;
-            var dataLength = myLiveChart.datasets[0].bars.length;
-            
-            var valueChange = myLiveChart.datasets[0].bars[topicIndex].value * weight[actionIndex];
-            myLiveChart.datasets[0].bars[topicIndex].value += valueChange;
-            
-            for (i = 0; i < dataLength; i++) {
-                if (i != topicIndex) {
-                    myLiveChart.datasets[0].bars[i].value -= valueChange / (dataLength - 1);
-                }
-            }
-            
-            myLiveChart.update();
-        }
-
-    </script>
     
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -67,5 +29,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <div className="teamInfo">Team of Flowplayer @ ATT IoT Hackathon (November 7)</div>
 
+    <script src="bundle.js"></script>
  </body>
 </html>

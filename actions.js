@@ -1,4 +1,5 @@
 import { ActionType } from './constants';
+import update from './chart';
 
 export function playerPlay(player) {
   return (dispatch, getState)=>{
@@ -46,6 +47,21 @@ export function dislike() {
   return {
     type: ActionType.DISLIKE,
   }
+}
+export function likeUpdate() {
+  return (dispatch, getState)=>{
+    let s = getState();
+    update(0, s.playList[s.playIndex].topic);
+    dispatch(like());
+  };
+
+}
+export function dislikeUpdate() {
+  return (dispatch, getState)=>{
+    let s = getState();
+    update(1, s.playList[s.playIndex].topic);
+    dispatch(dislike());
+  };
 }
 export function neutral() {
   return {

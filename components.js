@@ -45,7 +45,7 @@ class App extends Component {
     if(playList[playIndex].opinion === Opinion.LIKE) {
       dispatch(Action.neutral());
     } else {
-      dispatch(Action.like());
+      dispatch(Action.likeUpdate());
     }
   }
 
@@ -54,7 +54,7 @@ class App extends Component {
     if(playList[playIndex].opinion === Opinion.DISLIKE) {
       dispatch(Action.neutral());
     } else {
-      dispatch(Action.dislike());
+      dispatch(Action.dislikeUpdate());
     }
   }
 

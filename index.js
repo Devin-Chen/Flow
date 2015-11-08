@@ -8,6 +8,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import update from './chart';
 
 const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(logger, thunk)(createStore);
@@ -30,3 +31,8 @@ render(
   </Provider>,
   document.getElementById('root'));
 
+/*
+update(1, 1);
+update(1, 2);
+update(1, 2);
+*/
