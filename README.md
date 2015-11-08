@@ -18,10 +18,16 @@ http://pd.npr.org/anon.npr-mp3/npr/me/2015/11/20151105_me_how_a_folding_electric
 
 #### Install & Run
 
-  npm install
+```
+npm install
+```
 
-  npm install -g webpack
+```
+npm install -g webpack
+```
 
-  webpack --module-bind 'js=babel' -d --watch index.js bundle.js
+```
+webpack --module-bind 'js=babel' -d --watch index.js bundle.js
+```
   
   
