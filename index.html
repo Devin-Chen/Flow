@@ -16,8 +16,11 @@
     <div id="root"></div>
     <script src="bundle.js"></script>
     
+    <div class="row">
     <div class="col-md-3"></div>
-    <div class="playerCard col-md-6"><canvas id="updating-chart" width="500px" height="300"></canvas></div>
+    <div class="playerCard col-md-6">
+      <canvas id="updating-chart" width="500px" height="300"></canvas></div>
+    </div>
 
     <script>
         var canvas = document.getElementById('updating-chart'),
@@ -38,10 +41,10 @@
         // Reduce the animation steps for demo clarity.
         var myLiveChart = new Chart(ctx).Bar(startingData, {animationSteps: 50});
 
-        setInterval(function(){
+        var like = function(index) {
             var topicIndex = Math.round(Math.random() * (startingData.labels.length - 1));
             var weight = [0.2, -0.5, -0.1];
-            var actionIndex = Math.round(Math.random() * (weight.length - 1));
+            var actionIndex = index;
             var dataLength = myLiveChart.datasets[0].bars.length;
             
             var valueChange = myLiveChart.datasets[0].bars[topicIndex].value * weight[actionIndex];
@@ -54,7 +57,8 @@
             }
             
             myLiveChart.update();
-        }, 100);
+        }
+
     </script>
     
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
