@@ -26,6 +26,7 @@ class App extends Component {
   next() {
     let { dispatch } = this.props;
     dispatch(Action.playerNext(this.refs.player));
+    dispatch(Action.nextUpdate());
   }
   handlePlayPause() {
     let { playing } = this.props;
@@ -79,6 +80,10 @@ class App extends Component {
         case 'wave_out':
           this.next();
           console.log('next');
+          break;
+        case 'wave_in':
+          this.handleLike();
+          console.log('like');
           break;
         default:
       }
