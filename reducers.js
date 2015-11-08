@@ -39,7 +39,7 @@ export default function reducer(
       if(state.playIndex < state.playList.length - 1) {
         newCurrent = state.playIndex + 1;
       } else {
-        newCurrent = 1;
+        newCurrent = 0;
       }
       return Object.assign({}, state, { playIndex: newCurrent }); 
     case ActionType.LIKE:
