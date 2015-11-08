@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Opinion } from './constants';
 import Myo from 'myo';
 
+/*
 class Chart extends Component {
   render() {
     return (
@@ -11,6 +12,7 @@ class Chart extends Component {
     );
   }
 }
+*/
 
 class App extends Component {
   play() {
@@ -132,8 +134,6 @@ class App extends Component {
 </div>
    <div className="col-md-3 col-lg-2"></div>
    </div>
-
-   <div className="teamInfo">Team of Flowplayer @ ATT IoT Hackathon (November 7)</div>
 
 </div>
 
